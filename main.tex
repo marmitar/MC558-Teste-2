@@ -1,0 +1,142 @@
+\documentclass[a4paper, 14pt]{extarticle}
+
+%% Pacotes Gerais %%
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Formatação do Documento %%
+
+\usepackage{geometry}
+\geometry{
+    margin = 1.5cm,
+    noheadfoot = true
+}
+
+
+%%%%%%%%%%%%%%%%%
+%% Referências %%
+\usepackage{nameref, xcolor, url}
+
+\usepackage{hyperref}
+\hypersetup{
+    pdftitle  = {MC558 - Teste 2},
+    pdfauthor = {Tiago de Paula Alves},
+    % bookmarks   = true,
+    pdfpagemode = UseOutlines,
+    %% Cores de Links %%
+    colorlinks = true,
+    linkcolor  = blue!30!black,
+    urlcolor   = red!30!black,
+    citecolor  = blue
+}
+
+% 'hyperref' com substituição
+\newcommand{\textref}[3][\ref]{{%
+    \def\swaptext##1{#3}%
+    \hyperref[#2]{\swaptext{#1*{#2}}}%
+}}
+
+\newcommand{\equref}[2][\ref]{%
+    \textref[#1]{#2}{(##1)}
+}
+
+\renewcommand{\url}[1]{
+    \href{#1}{\texttt{#1}}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%% Opções de Seções %%
+\usepackage{titlesec, fancyhdr}
+
+% Formatação de seção e subseção
+\titleformat{\section}[runin]
+    {\titlerule{}\vspace{1ex}\normalfont\large\bfseries}
+    {}{.5em}{}[.]
+\titleformat{\subsection}[runin]
+    {\normalfont\normalsize\bfseries}
+    {}{1em}{}[:]
+
+% Separador das seções
+\newcommand{\docline}[1][\pagebreak]{%
+    ~ \\
+    \noindent\rule{\textwidth}{0.4pt}%
+    #1
+}
+% Separador de itens ou subseções
+\newcommand{\itemdsep}{
+    \noindent\hfil\rule{0.5\textwidth}{.2pt}\hfil
+    \vskip1em
+}
+
+% Páginas sem numeração
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%% Opções do Título %%
+\usepackage{titling}
+
+% Título mais pra cima
+\pretitle{%
+    \vspace{-6em}%
+    \begin{center}%
+        \Large%
+}
+\posttitle{%
+    \end{center}%
+}
+% Reduz separação do autor
+\preauthor{%
+    \vspace{-1.5em}
+    \begin{center}%
+        \begin{tabular}[t]{c}
+}
+\postauthor{%
+        \end{tabular}%
+    \end{center}%
+    \vspace{-1.5em}
+}
+% Sem data
+\predate{}\date{}\postdate{}
+
+% Título e autor
+\title{
+    {\normalsize  MC558 2020s1} \\
+    {\LARGE       Teste 2}
+}
+\author{
+    {\normalsize  Tiago de Paula Alves} \\
+    {\small       187679}
+}
+
+
+%%%%%%%%%%%%%%%%
+%% Documentos %%
+
+\input{teoremas}
+\input{simbolos}
+
+% cleveref depois dos outros pacotes
+\usepackage[nameinlink,noabbrev,brazilian]{cleveref}
+
+\begin{document}
+    \maketitle
+    \thispagestyle{empty}
+
+    \section{1}
+    \begingroup
+        \input{respostas/10}
+    \endgroup
+    \docline
+
+    \section{2}
+    \begingroup
+        \input{respostas/20}
+    \endgroup
+    \docline
+
+\end{document}
