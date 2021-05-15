@@ -35,13 +35,13 @@ Descreva uma recorrência que relaciona *azul[u]* em função de *azul[v]* e *ve
 
 Descreva agora uma recorrência que relaciona *verm[u]* em função de *azul[v]* e *verm[v]* para *v ∈ Adj[u]*. **Dica:** pense da mesma forma que antes, mas agora note que um caminho válido cuja primeira aresta *(u,v)* tem cor vermelha não pode usar uma aresta *(v,w)* de cor vermelha. Como acima, note que uma aresta *(u,v)* de cor vermelha contribui com uma unidade para o valor *verm[u]* pois é um caminho válido de comprimento um.
 
-### (c) (valor = 30 pontos) {#2c}
+### (c) (valor = 30 pontos)
 
 Escreva um pseudo-código de um algoritmo de complexidade *O(V+E)* que recebe um grafo orientado acı́clico *G* representado por listas de adjacências e um vetor cor de cores e devolve um vetor *val[]* indexado por *V* tal que *val[u]* é o número de caminhos válidos que começam em *u* para cada *u ∈ V[G]*. No exemplo da figura, *val[u] = 7*, *val[v] = 1*, *val[w] = 5*, *val[x] = 4*, *val[y] = 2* e *val[z] = 1*.
 
 ### (d) (valor = 10 pontos)
 
-Justifique a complexidade do seu algoritmo do item [(c)](#2c).
+Justifique a complexidade do seu algoritmo do item (c).
 
 ### Observações:
 
