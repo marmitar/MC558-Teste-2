@@ -72,6 +72,16 @@
     numberlike = theorem,
     postheadhook = \theorembookmark\reducemathskip
 ]
+% Sem numeração
+\declaretheorem{definition*}[
+    name = Definição,
+    refname = {definição,definições},
+    Refname= {Definição,Definições},
+    %
+    style = definition,
+    numbered = no,
+    postheadhook = \reducemathskip
+]
 
 %% Lista de Casos %%
 \newlist{casos}{enumerate}{2}

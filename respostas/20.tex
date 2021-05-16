@@ -1,1 +1,9 @@
-~
+Seja $G$ um grafo orientado acíclico. Suponha que cada aresta $(u, v) \in E[G]$ tem uma cor $cor(u, v)$ que pode ser azul ou vermelha. Um caminho $P$ em $G$ é válido se não possui arestas consecutivas de cor vermelha. [...]
+
+Nesta questão, você deve projetar um algoritmo linear que para cada vértice $u \in V[G]$, devolve o número de caminhos válidos que começam em u.
+
+\begin{definition*}
+    Defina $azul[u]$ (respectivamente, $verm[u]$) como o número de caminhos válidos com início em $u$ cuja primeira aresta tem cor azul (respectivamente, vermelha). Note que o caminho trivial válido $(u)$ não contribui para nenhum desses valores.
+\end{definition*}
+
+\itemdsep
