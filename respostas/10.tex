@@ -3,3 +3,45 @@ Modifique o pseudo-código do algoritmo de busca em profundidade apresentado em 
 Observação: basta escrever o pseudo-código, sem explicação ou prova de corretude; se você usou variáveis que não estavam no pseudo-código original de DFS, explique o que representam. Você deve escrever o pseudo-código inteiro.
 
 \itemdsep
+
+\newcommand{\Branco}{\const{Branco}\xspace}
+\newcommand{\Cinza}{\const{Cinza}\xspace}
+\newcommand{\Preto}{\const{Preto}\xspace}
+
+\begin{codebox}
+\Procname{$\proc{DFS}(G)$}
+\li \Para \Cada $u \in V[G]$ \Faca
+    \Do
+\li     $cor[u] \Recebe \Branco$
+\li     $\pi[u] \Recebe \Nulo$
+    \End
+\li $tempo \Recebe 0$
+\li \Para \Cada $u \in V[G]$ \Faca
+    \Do
+\li     \Se $cor[u] = \Branco$
+        \Do
+\li         \Entao $\proc{DFS-Visit}(u)$
+        \End
+    \End
+\end{codebox}
+
+\begin{codebox}
+\Procname{$\proc{DFS-Visit}(u)$}
+\li $cor[u] \Recebe \Cinza$
+\li $tempo \Recebe tempo + 1$
+\li $d[u] \Recebe tempo$
+\li \Para \Cada $v \in Adj[u]$
+    \Do
+\li     \Se $cor[v] = \Branco$ \Entao
+        \Do
+\li         \Entao
+            \Do
+\li             $\pi[v] \Recebe u$
+\li             $\proc{DFS-Visit}(v)$
+            \End
+        \End
+    \End
+\li $cor[u] \Recebe \Preto$
+\li $tempo \Recebe tempo + 1$
+\li $f[u] \Recebe tempo$
+\end{codebox}
