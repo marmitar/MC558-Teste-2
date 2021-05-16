@@ -14,6 +14,7 @@
     margin = 1.5cm,
     noheadfoot = true
 }
+\usepackage{float}
 
 
 %%%%%%%%%%%%%%%%%
@@ -58,7 +59,7 @@
     {}{.5em}{}[.]
 \titleformat{\subsection}[runin]
     {\normalfont\normalsize\bfseries}
-    {}{1em}{}[:]
+    {}{1em}{}[)]
 
 % Separador das seções
 \newcommand{\docline}[1][\pagebreak]{%
@@ -67,9 +68,9 @@
     #1
 }
 % Separador de itens ou subseções
-\newcommand{\itemdsep}{
-    \noindent\hfil\rule{0.5\textwidth}{.2pt}\hfil
-    \vskip1em
+\newcommand{\itemdsep}[1][0.6]{
+    \noindent\hfil\rule{#1\textwidth}{.2pt}\hfil
+    \vskip1em\xspace
 }
 
 % Páginas sem numeração
