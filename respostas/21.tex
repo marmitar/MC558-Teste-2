@@ -5,6 +5,19 @@
     \caption{Para quem tem dificuldades de distinguir as cores, as arestas vermelhas são: $(p, q)$, $(q, r)$, $(p, s)$, $(s, x)$, $(t, x)$, $(u, v)$, $(u, w)$, $(w, x)$ e $(x, y)$. Caminhos de comprimento zero ou um são sempre válidos. Os caminhos $(q, s, t, x, z)$ e $(p, s, t, w, y)$ também são válidos. Já o caminho $(p, q, s, t, x, y, z)$ não é válido pois $(t, x)$ e $(x, y)$ são arestas consecutivas de cor vermelha neste caminho.}
 \end{figure}
 
-\subsection{a} Para cada vértice $i$ do grafo acima, indique os valores $azul[i]$ e $verm[i]$ (alguns valores estão preenchidos).
+\subsection{a} Para cada vértice $i$ do grafo acima, indique os valores $\azul[i]$ e $\verm[i]$ (alguns valores estão preenchidos).
 
 \itemdsep[0.25]
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        $i$ & $p$ & $q$ & $r$ & $s$ & $t$ & $u$ & $v$ & $w$ & $x$ & $y$ & $z$ \\
+        \hline
+        $\azul[i]$ & & & & & & 2 & 0 & 2 & 1 & 1 & 0 \\
+        \hline
+        $\verm[i]$ & & & & & & 4 & 0 & 2 & 2 & 0 & 0 \\
+        \hline
+    \end{tabular}
+\end{table}
