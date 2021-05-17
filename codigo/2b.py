@@ -177,17 +177,17 @@ class Node:
     @cached_property
     def azul(self) -> int:
         cnt = 0
-        for path in self.paths():
-            if path.valid and path.cor() is Azul:
-                cnt += 1
+        for node in self.neighbors:
+            if self.graph.cor(self, node) is Azul:
+                cnt += 1 + node.azul + node.verm
         return cnt
 
     @cached_property
     def verm(self) -> int:
         cnt = 0
-        for path in self.paths():
-            if path.valid and path.cor() is Verm:
-                cnt += 1
+        for node in self.neighbors:
+            if self.graph.cor(self, node) is Verm:
+                cnt += 1 + node.azul
         return cnt
 
     @classmethod
