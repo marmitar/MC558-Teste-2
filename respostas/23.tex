@@ -1,3 +1,11 @@
 \subsection{b2} Descreva agora uma recorrência que relaciona $\verm[u]$ em função de $\azul[v]$ e $\verm[v]$ para $v \in \Adj[u]$.
 
 \itemdsep[0.25]
+
+\begin{align*}
+    \verm[u] &= \sum_{v \in \Adj[u]} \begin{cases}
+        1 + \azul[v] &\text{ se } \cor(u, v) = \verm \\
+        0 & \text{ caso contrário }
+    \end{cases} \\
+    &= \abs{(\verm)\Adj[u]} + \sum_{v \in (\azul)\Adj[u]} \azul[v]
+\end{align*}
