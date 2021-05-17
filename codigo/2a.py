@@ -174,6 +174,7 @@ class Node:
             for path in node.paths():
                 yield self + path
 
+    @cached_property
     def azul(self) -> int:
         cnt = 0
         for path in self.paths():
@@ -181,6 +182,7 @@ class Node:
                 cnt += 1
         return cnt
 
+    @cached_property
     def verm(self) -> int:
         cnt = 0
         for path in self.paths():
@@ -266,5 +268,5 @@ P = Node((Azul, U), (Verm, Q), (Verm, S))
 
 
 print('Name', *(f'{node.name:>3s}'   for node in Node.all()))
-print('Azul', *(f'{node.azul():3d}' for node in Node.all()))
-print('Verm', *(f'{node.verm():3d}' for node in Node.all()))
+print('Azul', *(f'{node.azul:3d}' for node in Node.all()))
+print('Verm', *(f'{node.verm:3d}' for node in Node.all()))
