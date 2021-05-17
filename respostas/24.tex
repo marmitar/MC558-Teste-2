@@ -9,37 +9,37 @@
 \begin{codebox}
 \Procname{$\proc{Caminhos-Válidos}(G, \cor)$}
 \li \Sejam $\azul[~]$ e $\verm[~]$ vetores indexados pelos vértices em $V[G]$.
-\li \Para $v \in V[G]$ \Faca
+\li \Para $v \in V[G]$ \Faca        \label{linha:2c:init}
     \Do
 \li     $\azul[v] \Recebe \Nulo$
-\li     $\verm[v] \Recebe \Nulo$
+\li     $\verm[v] \Recebe \Nulo$    \label{linha:2c:init:end}
     \End
 \li
 \li \Seja $val[~]$ um vetor também indexado por $V[G]$
-\li \Para $v \in V[G]$ \Faca
+\li \Para $v \in V[G]$ \Faca        \label{linha:2c:preenche}
     \Do
-\li     $\proc{Caminhos-Azuis-Vermelhos}(v, \cor, \azul, \verm)$
-\li     $val[v] = \azul[v] + \verm[v]$
+\li     $\proc{Caminhos-Azuis-Vermelhos}(v, \cor, \azul, \verm)$    \label{linha:2c:preenche:chamada}
+\li     $val[v] = \azul[v] + \verm[v]$  \label{linha:2c:preenche:end}
     \End
 \li \Retorna $val$
 \end{codebox}
 
 \begin{codebox}
 \Procname{$\proc{Caminhos-Azuis-Vermelhos}(v, \cor, \azul, \verm)$}
-\li \Se $\azul[v] \ne \Nulo$ e $\verm[v] \ne \Nulo$
+\li \Se $\azul[v] \ne \Nulo$ e $\verm[v] \ne \Nulo$ \label{linha:2c:memo}
     \Do
 \li     \Entao \Retorna
     \End
 \li
 \li $\azul[v] \Recebe 0$
 \li $\verm[v] \Recebe 0$
-\li \Para $u \in \Adj[v]$ \Faca
+\li \Para $u \in \Adj[v]$ \Faca \label{linha:2c:calc}
     \Do
-\li     $\proc{Caminhos-Azuis-Vermelhos}(u, \cor, \azul, \verm)$
+\li     $\proc{Caminhos-Azuis-Vermelhos}(u, \cor, \azul, \verm)$ \label{linha:2c:calc:chamada}
 \li     \Se $\cor[v,u] = \Azul$
         \Do
 \li         \Entao $\azul[v] \Recebe \azul[v] + 1 + \azul[u] + \verm[u]$
-\li         \Senao $\verm[v] \Recebe \verm[v] + 1 + \azul[u]$
+\li         \Senao $\verm[v] \Recebe \verm[v] + 1 + \azul[u]$ \label{linha:2c:calc:end}
         \End
     \End
 \end{codebox}
