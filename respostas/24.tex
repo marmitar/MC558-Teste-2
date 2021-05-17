@@ -1,3 +1,45 @@
 \subsection{c} Escreva um pseudo-código de um algoritmo de complexidade $O(V +E)$ que recebe um grafo orientado acíclico $G$ representado por listas de adjacências e um vetor \textbf{cor} de cores e devolve um vetor $val[~]$ indexado por $V$ tal que $val[u]$ é o número de caminhos válidos que começam em $u$ para cada $u \in V[G]$.
 
 \itemdsep[0.25]
+
+
+\newcommand{\Azul}{\const{azul}\xspace}
+\newcommand{\Vermelho}{\const{vermelho}\xspace}
+
+\begin{codebox}
+\Procname{$\proc{Caminhos-Válidos}(G, \cor)$}
+\li \Sejam $\azul[~]$ e $\verm[~]$ vetores indexados pelos vértices em $V[G]$.
+\li \Para $v \in V[G]$ \Faca
+    \Do
+\li     $\azul[v] \Recebe \Nulo$
+\li     $\verm[v] \Recebe \Nulo$
+    \End
+\li
+\li \Seja $val[~]$ um vetor também indexado por $V[G]$
+\li \Para $v \in V[G]$ \Faca
+    \Do
+\li     $\proc{Caminhos-Azuis-Vermelhos}(v, \cor, \azul, \verm)$
+\li     $val[v] = \azul[v] + \verm[v]$
+    \End
+\li \Retorna $val$
+\end{codebox}
+
+\begin{codebox}
+\Procname{$\proc{Caminhos-Azuis-Vermelhos}(v, \cor, \azul, \verm)$}
+\li \Se $\azul[v] \ne \Nulo$ e $\verm[v] \ne \Nulo$
+    \Do
+\li     \Entao \Retorna
+    \End
+\li
+\li $\azul[v] \Recebe 0$
+\li $\verm[v] \Recebe 0$
+\li \Para $u \in \Adj[v]$ \Faca
+    \Do
+\li     $\proc{Caminhos-Azuis-Vermelhos}(u, \cor, \azul, \verm)$
+\li     \Se $\cor[v,u] = \Azul$
+        \Do
+\li         \Entao $\azul[v] \Recebe \azul[v] + 1 + \azul[u] + \verm[u]$
+\li         \Senao $\verm[v] \Recebe \verm[v] + 1 + \azul[u]$
+        \End
+    \End
+\end{codebox}
