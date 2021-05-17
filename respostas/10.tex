@@ -31,12 +31,26 @@ Modifique o pseudo-código do algoritmo de busca em profundidade apresentado em 
 \li \Para \Cada $v \in \Adj[u]$
     \Do
 \li     \Se $cor[v] = \Branco$ \Entao
+\li     \Comment próximo vértice a ser visitado, então $uv$ está na floresta BP
         \Do
-\li         \Entao
-            \Do
-\li             $\pi[v] \Recebe u$
-\li             $\proc{DFS-Visit}(v)$
-            \End
+\li         $\proc{Imprime}(u, v, \text{``aresta da árvore''})$
+\li
+\li         $\pi[v] \Recebe u$
+\li         $\proc{DFS-Visit}(v)$
+        \End
+\li     \Senao, \Se $cor[v] = \Cinza$ \Entao
+\li     \Comment $u$ está sendo visitado antes de terminar $v$, então $v$ é algum ancestral de $u$
+        \Do
+\li         $\proc{Imprime}(u, v, \text{``aresta de retorno''})$
+        \End
+\li     \Senao, \Se $d[u] < d[v]$ \Entao
+\li     \Comment $v$ já foi visitado, mas antes de terminar $u$, então $v$ ainda é descendente de $u$
+        \Do
+\li         $\proc{Imprime}(u, v, \text{``aresta de avanço''})$
+        \End
+\li     \Senao
+        \Do
+\li         $\proc{Imprime}(u, v, \text{``aresta de cruzamento''})$
         \End
     \End
 \li $cor[u] \Recebe \Preto$
