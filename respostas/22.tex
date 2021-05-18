@@ -2,10 +2,11 @@
 
 \itemdsep[0.25]
 
-\begin{align*}
-    \azul[u] &= \sum_{v \in \Adj[u]} \begin{cases}
-        1 + \azul[v] + \verm[v] &\text{ se } \cor(u, v) = \azul \\
+Se $cor(u, v) = \text{azul}$, então o caminho $(u, v)$ é válido é começa com aresta azul. Além disso, para qualquer caminho válido $(v, \ldots)$ partindo $v$, podemos juntar $u$ fazendo o caminho $(u, v, \ldots)$, que continua válido e começa com aresta azul. Como $v$ tem $\azul[v] + \verm[v]$ caminhos válidos, podemos encontrar $\azul[u]$ por:
+
+\begin{equation*}
+    \azul[u] = \sum_{v \in \Adj[u]} \begin{cases}
+        1 + \azul[v] + \verm[v] &\text{ se } \cor(u, v) = \text{azul} \\
         0 & \text{ caso contrário }
-    \end{cases} \\
-    &= \abs{(\azul)\Adj[u]} + \sum_{v \in (\azul)\Adj[u]} (\azul[v] + \verm[v])
-\end{align*}
+    \end{cases}
+\end{equation*}
