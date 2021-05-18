@@ -8,38 +8,49 @@
 
 \begin{codebox}
 \Procname{$\proc{Caminhos-Válidos}(G, \cor)$}
-\li \Sejam $\azul[~]$ e $\verm[~]$ vetores indexados pelos vértices em $V[G]$.
-\li \Para $v \in V[G]$ \Faca        \label{linha:2c:init}
+\li \Sejam $\azul[~]$ e $\verm[~]$ vetores indexados pelos vértices em $V[G]$
+\li \Para $u \in V[G]$ \Faca        \label{linha:2c:init}
     \Do
-\li     $\azul[v] \Recebe \Nulo$
-\li     $\verm[v] \Recebe \Nulo$    \label{linha:2c:init:end}
+\li     $\azul[u] \Recebe \Nulo$    \label{linha:2c:init:end}
+        \>\>\>\>\>\Comment usado para marcar vértices não visitados
     \End
 \li
 \li \Seja $val[~]$ um vetor também indexado por $V[G]$
-\li \Para $v \in V[G]$ \Faca        \label{linha:2c:preenche}
+\li \Para $u \in V[G]$ \Faca        \label{linha:2c:preenche}
     \Do
-\li     $\proc{Caminhos-Azuis-Vermelhos}(v, \cor, \azul, \verm)$    \label{linha:2c:preenche:chamada}
-\li     $val[v] = \azul[v] + \verm[v]$  \label{linha:2c:preenche:end}
+\li     \Se $\azul[u] = \Nulo$ \Entao
+        \Do
+\li         $\proc{Caminhos-Azuis-Vermelhos}(u, \cor, \azul, \verm)$    \label{linha:2c:preenche:chamada}
+        \End
+\li
+\li     $val[u] = 1 + \azul[u] + \verm[u]$  \label{linha:2c:preenche:end}
+\li     \Comment caminho trivial $(u)$, mais os válidos começando com azul ou vermelho
     \End
 \li \Retorna $val$
 \end{codebox}
 
+A função $\proc{Caminhos-Azuis-Vermelhos}$ abaixo calcula os valores de $\azul[u]$ e $\verm[u]$ pelas relações encontradas no \textref{sec:2b}{item anterior}. Para isso, pode ser necessário ir preenchendo os vetores onde o valor ainda não foi calculado.
+
 \begin{codebox}
-\Procname{$\proc{Caminhos-Azuis-Vermelhos}(v, \cor, \azul, \verm)$}
-\li \Se $\azul[v] \ne \Nulo$ e $\verm[v] \ne \Nulo$ \label{linha:2c:memo}
+\Procname{$\proc{Caminhos-Azuis-Vermelhos}(u, \cor, \azul, \verm)$}
+\li $azul \Recebe 0$
+\li $verm \Recebe 0$
+\li \Para $v \in \Adj[u]$ \Faca \label{linha:2c:calc}
     \Do
-\li     \Entao \Retorna
-    \End
-\li
-\li $\azul[v] \Recebe 0$
-\li $\verm[v] \Recebe 0$
-\li \Para $u \in \Adj[v]$ \Faca \label{linha:2c:calc}
-    \Do
-\li     $\proc{Caminhos-Azuis-Vermelhos}(u, \cor, \azul, \verm)$ \label{linha:2c:calc:chamada}
-\li     \Se $\cor[v,u] = \Azul$
+\li     \Se $\azul[v] = \Nulo$ \Entao
         \Do
-\li         \Entao $\azul[v] \Recebe \azul[v] + 1 + \azul[u] + \verm[u]$
-\li         \Senao $\verm[v] \Recebe \verm[v] + 1 + \azul[u]$ \label{linha:2c:calc:end}
+\li         $\proc{Caminhos-Azuis-Vermelhos}(v, \cor, \azul, \verm)$    \label{linha:2c:calc:chamada}
+        \End
+\li
+\li     \Se $\cor[u,v] = \Azul$
+        \>\>\>\>\>\>\>\Comment do item 2b
+        \Do
+\li         \Entao $azul \Recebe azul + 1 + \azul[v] + \verm[v]$
+\li         \Senao $verm \Recebe verm + 1 + \azul[v]$ \label{linha:2c:calc:end}
         \End
     \End
+\li
+\li \Comment salva os valores
+\li $\azul[v] \Recebe azul$
+\li $\verm[v] \Recebe verm$
 \end{codebox}
