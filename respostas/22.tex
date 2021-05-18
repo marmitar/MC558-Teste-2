@@ -2,7 +2,7 @@
 
 \itemdsep[0.25]
 
-Se $cor(u, v) = \text{azul}$, então o caminho $(u, v)$ é válido é começa com aresta azul. Além disso, para qualquer caminho válido $(v, \ldots)$ partindo $v$, podemos juntar $u$ fazendo o caminho $(u, v, \ldots)$, que continua válido e começa com aresta azul. Como $v$ tem $\azul[v] + \verm[v]$ caminhos válidos, podemos encontrar $\azul[u]$ por:
+Se $cor(u, v) = \text{azul}$, então o caminho $(u, v)$ é válido é começa com aresta azul. Além disso, para qualquer caminho válido $(v, \ldots)$ partindo $v$, podemos juntar $u$ fazendo o caminho $(u, v, \ldots)$, que continua válido e começa com aresta azul. Como $v$ tem $\azul[v] + \verm[v]$ caminhos válidos não-triviais, podemos encontrar $\azul[u]$ por:
 
 \begin{equation*}
     \azul[u] = \sum_{v \in \Adj[u]} \begin{cases}
