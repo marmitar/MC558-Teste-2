@@ -2,7 +2,7 @@
 
 \itemdsep[0.25]
 
-Para $cor(u, v) = \text{vermelho}$, o caminho $(u, v)$ também é válido, já que tem só uma aresta vermelha. No entanto, os únicos caminhos de $v$ que continham válidos depois de prefixar $u$ são os que começam com aresta azul, senão teriam duas arestas arestas vermelhas seguidas. Assim:
+Para $cor(u, v) = \text{vermelho}$, o caminho $(u, v)$ também é válido, já que só tem uma aresta vermelha. No entanto, os únicos caminhos de $v$ que continham válidos depois de prefixar $u$ são os que começam com aresta azul, senão teriam duas arestas arestas vermelhas seguidas. Assim:
 
 \begin{equation*}
     \verm[u] = \sum_{v \in \Adj[u]} \begin{cases}
