@@ -39,12 +39,12 @@ Modifique o pseudo-código do algoritmo de busca em profundidade apresentado em 
 \li         $\proc{DFS-Visit}(v)$
         \End
 \li     \Senao, \Se $cor[v] = \Cinza$ \Entao
-\li     \Comment $u$ está sendo visitado antes de terminar $v$, então $v$ é algum ancestral de $u$
+\li     \Comment $v$ ainda não terminou, então ele é algum ancestral de $u$
         \Do
 \li         $\proc{Imprime}(u, v, \text{``aresta de retorno''})$
         \End
 \li     \Senao, \Se $d[u] < d[v]$ \Entao
-\li     \Comment $v$ já foi visitado, mas antes de terminar $u$, então $v$ ainda é descendente de $u$
+\li     \Comment $v$ já foi visitado, mas antes de terminar $u$, então ainda é descendente de $u$
         \Do
 \li         $\proc{Imprime}(u, v, \text{``aresta de avanço''})$
         \End

@@ -20,7 +20,7 @@
     \Do
 \li     \Se $\azul[u] = \Nulo$ \Entao
         \Do
-\li         $\proc{Caminhos-Azuis-Vermelhos}(u, \cor, \azul, \verm)$    \label{linha:2c:preenche:chamada}
+\li         $\proc{Caminhos-Azuis-Vermelhos}(\cor, u, \azul, \verm)$    \label{linha:2c:preenche:chamada}
         \End
 \li
 \li     $val[u] = 1 + \azul[u] + \verm[u]$  \label{linha:2c:preenche:end}
@@ -29,17 +29,17 @@
 \li \Retorna $val$
 \end{codebox}
 
-A função $\proc{Caminhos-Azuis-Vermelhos}$ abaixo calcula os valores de $\azul[u]$ e $\verm[u]$ pelas relações encontradas no \textref{sec:2b}{item anterior}. Para isso, pode ser necessário ir preenchendo os vetores onde o valor ainda não foi calculado.
-
 \begin{codebox}
-\Procname{$\proc{Caminhos-Azuis-Vermelhos}(u, \cor, \azul, \verm)$}
+\Procname{$\proc{Caminhos-Azuis-Vermelhos}(\cor, u, \azul, \verm)$}
+\li \Comment função que preenche $\azul[u]$ e $\verm[u]$ pelas relações do \textref{sec:2b}{item 2b}
+\li
 \li $azul \Recebe 0$
 \li $verm \Recebe 0$
 \li \Para $v \in \Adj[u]$ \Faca \label{linha:2c:calc}
     \Do
 \li     \Se $\azul[v] = \Nulo$ \Entao
         \Do
-\li         $\proc{Caminhos-Azuis-Vermelhos}(v, \cor, \azul, \verm)$    \label{linha:2c:calc:chamada}
+\li         $\proc{Caminhos-Azuis-Vermelhos}(\cor, v, \azul, \verm)$    \label{linha:2c:calc:chamada}
         \End
 \li
 \li     \Se $\cor[u,v] = \Azul$

@@ -2,7 +2,7 @@
 
 \itemdsep[0.25]
 
-De forma parecida com o que ocorre no DFS, $\proc{Caminhos-Azuis-Vermelhos}$ é chamado no máximo uma vez por vértice $u \in V[G]$. Em cada chamada, o laço das linhas \ref{linha:2c:calc} à \ref{linha:2c:calc:end} executa $\abs{\Adj[u]}$. Então, os vetores $\azul[~]$ e $\verm[~]$ são preenchidos com tempo total
+O procedimento $\proc{Caminhos-Azuis-Vermelhos}$ é chamado no máximo uma vez por vértice $u \in V[G]$. Em cada chamada, o laço das linhas \ref{linha:2c:calc} a \ref{linha:2c:calc:end} executa $\abs{\Adj[u]}$ vezes. Então, os vetores $\azul[~]$ e $\verm[~]$ são preenchidos com tempo total
 \[
     \sum_{u \in V} O\left(\abs{\Adj[u]}\right) = O\left(\sum_{u \in V} \abs{\Adj[u]}\right) = O(E)
 \]
