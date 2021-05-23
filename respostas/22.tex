@@ -3,7 +3,7 @@ Descreva uma recorrência que relaciona $\azul[u]$ em função de $\azul[v]$ e $
 
 \itemdsep[0.25]
 
-Se $cor(u, v) = \text{azul}$, então o caminho $(u, v)$ é válido é começa com aresta azul. Além disso, para qualquer caminho válido $(v, \ldots)$ partindo $v$, podemos juntar $u$ fazendo o caminho $(u, v, \ldots)$, que continua válido e começa com aresta azul. Como $v$ tem $\azul[v] + \verm[v]$ caminhos válidos (sem o trivial, que não tem cor inicial), podemos encontrar $\azul[u]$ por:
+Se $cor(u, v) = \text{azul}$, então o caminho $(u, v)$ é válido e começa com aresta azul. Além disso, para qualquer caminho válido $(v, \ldots)$ partindo de $v$, podemos juntar $u$ fazendo o caminho $(u, v, \ldots)$, que continua válido e começa com aresta azul. Como $v$ tem $\azul[v] + \verm[v]$ caminhos válidos coloridos, podemos encontrar $\azul[u]$ por:
 
 \begin{equation*}
     \azul[u] = \sum_{v \in \Adj[u]} \begin{cases}
