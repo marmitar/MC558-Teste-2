@@ -1,5 +1,8 @@
 # MC558 2021s1 - Teste 2
 
+- [Enunciado](enunciado.pdf).
+- [Entrega](entrega.pdf).
+
 ## Item 1 - *(25 pontos)*
 
 Modifique o pseudo-código do algoritmo de busca em profundidade **apresentado em aula ou do CLRS** (supondo que o grafo de entrada *G* é orientado) para imprimir cada aresta *(u,v)* juntamente com seu tipo (aresta da árvore, de avanço, de retorno ou de cruzamento). A complexidade do DFS modificado ainda dever ser *O(V+E)*.
